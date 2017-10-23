@@ -1,0 +1,28 @@
+{
+  "name": "get-sri",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ci:test": "echo 0",
+    "ci:report": "echo 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jstbx/get-sri.git"
+  },
+  "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4"
+  },
+  "bugs": {
+    "url": "https://github.com/jstbx/get-sri/issues"
+  },
+  "homepage": "https://github.com/jstbx/get-sri#readme",
+  "devDependencies": {
+    "snazzy": "^7.1.1",
+    "standard": "^11.0.1"
+  }
+}
