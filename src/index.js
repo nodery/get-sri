@@ -3,70 +3,57 @@
 const crypto = require('crypto')
 
 /**
- * @typedef {Object} GetSriOptions
+ * Generates the SRI hash of the given string.
  *
- * @property {string} [string]                 - The string to use to calculate the SRI hash.
- * @property {string} [file]                   - The path of the file to load and use to calculate the SRI hash.
- * @property {string} [template='hashOnly']    - The path of the file to load and use to calculate the SRI hash.
- * @property {string} [hashAlgorithm='sha256'] - The hash algorithm to use to generate the SRI hash.
+ * @param {string}  string               - The string to use to calculate the SRI hash.
+ * @param {string}  [algorithm='sha256'] - The hash algorithm to use to generate the SRI hash.
+ * @param {boolean} [prefix=false]       - Whether to prefix the algorithm type to the generated hash
+ *                                         (e.g.: 'sha256-...').
+ *
+ * @returns {string} The generated SRI string.
  */
+function getSRI (string, algorithm = 'sha256', prefix = false) {
+  if (typeof string !== 'string') {
+    throw new Error(`The string parameter must be a string type, got: ${typeof string}`)
+  }
 
-/**
- * Generates the SRI hash of the given string or file.
- *
- * @param {string}               string
- * @param {string|GetSriOptions} [hashAlgorithmOrOptions='sha256']
- *
- * @returns {string} The generated SRI string
- */
-function getSRI (string, hashAlgorithmOrOptions = 'sha256') {
-  return crypto.createHash(hashAlgorithm).update(stringOrOptions).digest('base64')
+  if (string.length < 1) {
+    throw new Error(
+      `The string parameter must have a .length > 0`)
+  }
+
+  switch (algorithm) {
+    case getSRI.SHA256:
+    case getSRI.SHA384:
+    case getSRI.SHA512:
+      break
+
+    default:
+      algorithm = getSRI.SHA256
+      break
+  }
+
+  const hash = crypto.createHash(algorithm).update(string).digest('base64')
+
+  return prefix ? `${algorithm}-${hash}` : hash
 }
 
 /**
- * The default template to use, when returning the SRI hash.
- *
- * @const {string}
- */
-getSRI.TEMPLATE_HASH_ONLY = 'hashOnly'
-
-/**
- * The SRI hash prefixed with the algorithm type
- *
- * @const {string}
- */
-getSRI.TEMPLATE_PREFIXED_HASH = 'prefixedHash'
-
-/**
- * The <link> tag embedded the SRI hash into.
- *
- * @const {string}
- */
-getSRI.TEMPLATE_LINK_TAG = 'linkTag'
-
-/**
- * The <script> tag embedded the SRI hash into.
- *
- * @const {string}
- */
-getSRI.TEMPLATE_SCRIPT_TAG = 'scriptTag'
-
-/**
- * The 'sha256' algorithm constant.
+ * The 'sha256' hash algorithm constant.
  *
  * @const {string}
  */
 getSRI.SHA256 = 'sha256'
 
 /**
- * The 'sha384' algorithm constant.
+ * The 'sha384' hash algorithm constant.
  *
  * @const {string}
  */
 getSRI.SHA384 = 'sha384'
 
 /**
- * The 'sha512' algorithm constant.
+ * The 'sha512' hash algorithm constant.
  *
  * @const {string}
  */
