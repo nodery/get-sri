@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "tap test/*.js --100"
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix",
+    "test": "npm run lint && tap test/*.js --100"
   },
   "repository": {
     "type": "git",

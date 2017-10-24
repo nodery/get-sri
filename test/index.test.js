@@ -3,7 +3,7 @@
 const tap = require('tap')
 const path = require('path')
 const pkg = require('../package')
-const getSRI = require(path.normalize(__dirname + '/../' + pkg.main))
+const getSRI = require(path.normalize(`${__dirname}/../${pkg.main}`))
 
 tap.test(pkg.name, t => {
   t.test('error', t => {
