@@ -5,7 +5,7 @@ const getSRI = require(path.normalize(`${__dirname}/../${pkg.main}`))
 
 tap.test(pkg.name, function (t) {
   t.test('error', function (t) {
-    let message
+    var message
 
     try {
       getSRI()
@@ -32,7 +32,7 @@ tap.test(pkg.name, function (t) {
   })
 
   t.test('algorithm', function (t) {
-    let hash
+    var hash
 
     hash = getSRI('-', getSRI.SHA256, true)
     t.equal(hash.indexOf('sha256-'), 0)

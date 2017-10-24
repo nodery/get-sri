@@ -31,7 +31,7 @@ function getSRI (string, algorithm = 'sha256', prefix = false) {
       break
   }
 
-  const hash = crypto.createHash(algorithm).update(string).digest('base64')
+  var hash = crypto.createHash(algorithm).update(string).digest('base64')
 
   return prefix ? `${algorithm}-${hash}` : hash
 }
