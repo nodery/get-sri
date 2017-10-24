@@ -3,8 +3,8 @@ const path = require('path')
 const pkg = require('../package')
 const getSRI = require(path.normalize(`${__dirname}/../${pkg.main}`))
 
-tap.test(pkg.name, function(t) {
-  t.test('error', function(t) {
+tap.test(pkg.name, function (t) {
+  t.test('error', function (t) {
     let message
 
     try {
@@ -31,7 +31,7 @@ tap.test(pkg.name, function(t) {
     t.end()
   })
 
-  t.test('algorithm', function(t) {
+  t.test('algorithm', function (t) {
     let hash
 
     hash = getSRI('-', getSRI.SHA256, true)
@@ -49,7 +49,7 @@ tap.test(pkg.name, function(t) {
     t.end()
   })
 
-  t.test('prefix', function(t) {
+  t.test('prefix', function (t) {
     t.equal(getSRI('-', getSRI.SHA256, false), 'OXPgIukyIPkhLBjQ0MVDrnwwnkZkDak6SgMU3pmfURI=')
     t.equal(getSRI('-', getSRI.SHA256, true), 'sha256-OXPgIukyIPkhLBjQ0MVDrnwwnkZkDak6SgMU3pmfURI=')
 
