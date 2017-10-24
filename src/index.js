@@ -10,14 +10,13 @@ const crypto = require('crypto')
  *
  * @returns {string} The generated SRI string.
  */
-function getSRI (string, algorithm = 'sha256', prefix = false) {
+function getSRI (string, algorithm, prefix) {
   if (typeof string !== 'string') {
-    throw new Error(`The string parameter must be a string type, got: ${typeof string}`)
+    throw new Error('The string parameter must be a string type, got: ' + typeof string)
   }
 
   if (string.length < 1) {
-    throw new Error(
-      `The string parameter must have a .length > 0`)
+    throw new Error('The string parameter must have a .length > 0')
   }
 
   switch (algorithm) {
@@ -31,9 +30,11 @@ function getSRI (string, algorithm = 'sha256', prefix = false) {
       break
   }
 
-  var hash = crypto.createHash(algorithm).update(string).digest('base64')
+  const hash = crypto.createHash(algorithm).update(string).digest('base64')
 
-  return prefix ? `${algorithm}-${hash}` : hash
+  prefix = typeof prefix === 'boolean' ? prefix : false
+
+  return prefix ? algorithm + '-' + hash : hash
 }
 
 /**
