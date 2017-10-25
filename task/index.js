@@ -4,7 +4,7 @@ const pkg = require('../package')
 
 gulp.task('build', function () {
   return gulp.src('../src/*.js')
-    .pipe(replace({...pkg}))
+    .pipe(replace(pkg))
     .pipe(gulp.dest('../dist'))
 })
 
