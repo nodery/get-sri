@@ -1,7 +1,7 @@
 {
   "name": "get-sri",
   "version": "0.0.0",
-  "description": "Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.",
+  "description": "Generates the SRI of the given string to use with CDN resources without publishing the content to CDN, a.k.a. CDN with SRI.",
   "main": "dist/index.js",
   "homepage": "https://github.com/jstbx/get-sri#readme",
   "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
@@ -20,6 +20,17 @@
     "node": ">=4"
   },
   "license": "MIT",
+  "keywords": [
+    "sri",
+    "cdn",
+    "hash",
+    "sha256",
+    "sha384",
+    "sha512",
+    "subresource",
+    "integrity",
+    "subresource-integrity"
+  ],
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "lint:fix": "standard --fix",
