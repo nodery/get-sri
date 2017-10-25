@@ -1,29 +1,37 @@
 {
   "name": "get-sri",
   "version": "0.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "scripts": {
-    "lint": "standard --verbose | snazzy",
-    "lint:fix": "standard --fix",
-    "build:doc": "jsdoc2md --no-gfm src/*.js > doc/API.md",
-    "test": "npm run lint && tap test/*.js --100",
-    "test:ci": "npm run build:doc && npm run test"
+  "description": "Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/jstbx/get-sri#readme",
+  "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jstbx/get-sri.git"
   },
-  "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
-  "license": "MIT",
-  "engines": {
-    "node": ">=4"
-  },
   "bugs": {
     "url": "https://github.com/jstbx/get-sri/issues"
   },
-  "homepage": "https://github.com/jstbx/get-sri#readme",
+  "engines": {
+    "node": ">=4"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix",
+    "gulp": "gulp --gulpfile task/index.js",
+    "build": "npm run gulp -- build",
+    "build:doc": "npm run build && jsdoc2md --no-gfm dist/*.js > doc/API.md",
+    "test": "npm run lint && npm run build:doc && tap test/*.js --100",
+    "test:ci": "npm run test"
+  },
   "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-tap": "^1.0.1",
     "jsdoc-to-markdown": "^4.0.1",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
