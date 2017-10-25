@@ -1,9 +1,24 @@
-<a name="getSRI"></a>
+<a name="module_get-sri"></a>
 
-## getSRI(string, [algorithm], [prefix]) ⇒ <code>string</code>
+## get-sri
+Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.
+
+**Version**: 0.0.0  
+**Author**: Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)  
+**License**: MIT  
+
+* [get-sri](#module_get-sri)
+    * [getSRI(string, [algorithm], [prefix])](#exp_module_get-sri--getSRI) ⇒ <code>string</code> ⏏
+        * [.SHA256](#module_get-sri--getSRI.SHA256) : <code>string</code>
+        * [.SHA384](#module_get-sri--getSRI.SHA384) : <code>string</code>
+        * [.SHA512](#module_get-sri--getSRI.SHA512) : <code>string</code>
+
+<a name="exp_module_get-sri--getSRI"></a>
+
+### getSRI(string, [algorithm], [prefix]) ⇒ <code>string</code> ⏏
 Generates the SRI hash of the given string.
 
-**Kind**: global function  
+**Kind**: Exported function  
 **Returns**: <code>string</code> - The generated SRI string.  
 <table>
   <thead>
@@ -25,27 +40,31 @@ Generates the SRI hash of the given string.
     </tr>  </tbody>
 </table>
 
+**Example**  
+```js
+const getSRI = require('get-sri')
 
-* [getSRI(string, [algorithm], [prefix])](#getSRI) ⇒ <code>string</code>
-    * [.SHA256](#getSRI.SHA256) : <code>string</code>
-    * [.SHA384](#getSRI.SHA384) : <code>string</code>
-    * [.SHA512](#getSRI.SHA512) : <code>string</code>
+// returns the SRI hash without prefix ('sha256' by default)
+getSRI('... file content as string ...') // 'OXPgIukyI[...]6SgMU3pmfURI='
 
-<a name="getSRI.SHA256"></a>
+// returns the SRI hash with prefix ('sha256' by default, can be 'sha256', 'sha384', or 'sha512')
+getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIukyI[...]6SgMU3pmfURI='
+```
+<a name="module_get-sri--getSRI.SHA256"></a>
 
-### getSRI.SHA256 : <code>string</code>
+#### getSRI.SHA256 : <code>string</code>
 The 'sha256' hash algorithm constant.
 
-**Kind**: static constant of [<code>getSRI</code>](#getSRI)  
-<a name="getSRI.SHA384"></a>
+**Kind**: static constant of [<code>getSRI</code>](#exp_module_get-sri--getSRI)  
+<a name="module_get-sri--getSRI.SHA384"></a>
 
-### getSRI.SHA384 : <code>string</code>
+#### getSRI.SHA384 : <code>string</code>
 The 'sha384' hash algorithm constant.
 
-**Kind**: static constant of [<code>getSRI</code>](#getSRI)  
-<a name="getSRI.SHA512"></a>
+**Kind**: static constant of [<code>getSRI</code>](#exp_module_get-sri--getSRI)  
+<a name="module_get-sri--getSRI.SHA512"></a>
 
-### getSRI.SHA512 : <code>string</code>
+#### getSRI.SHA512 : <code>string</code>
 The 'sha512' hash algorithm constant.
 
-**Kind**: static constant of [<code>getSRI</code>](#getSRI)  
+**Kind**: static constant of [<code>getSRI</code>](#exp_module_get-sri--getSRI)  
