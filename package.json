@@ -6,7 +6,9 @@
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "lint:fix": "standard --fix",
-    "test": "npm run lint && tap test/*.js --100"
+    "build:doc": "jsdoc2md --no-gfm src/*.js > doc/API.md",
+    "test": "npm run lint && tap test/*.js --100",
+    "test:ci": "npm run build:doc && npm run test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   },
   "homepage": "https://github.com/jstbx/get-sri#readme",
   "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
     "tap": "^12.0.1"
