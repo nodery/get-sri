@@ -1,11 +1,11 @@
 /**
- * {{ description }}
+ * Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.
  *
- * @author {{ author }}
- * @version {{ version }}
- * @license {{ license }}
+ * @author Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)
+ * @version 0.0.0
+ * @license MIT
  *
- * @module {{ name }}
+ * @module get-sri
  */
 
 const crypto = require('crypto')
@@ -13,7 +13,7 @@ const crypto = require('crypto')
 /**
  * Generates the SRI hash of the given string.
  *
- * @alias module:{{ name }}
+ * @alias module:get-sri
  *
  * @param {string}  string               - The string to use to calculate the SRI hash.
  * @param {string}  [algorithm='sha256'] - The hash algorithm to use to generate the SRI hash.
