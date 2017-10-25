@@ -6,9 +6,11 @@ const replaceWith = require('./replace-with')
  * @param {Array}  args
  */
 function replacer (file, args) {
-  let content = file.contents.toString()
+  var content = file.contents.toString()
 
-  args.forEach(entry => {
+  args = Array.prototype.slice.call(args)
+
+  args.forEach(function (entry) {
     if (typeof entry === 'function') {
       content = replaceWithFunction(content, entry)
     } else {
@@ -43,4 +45,4 @@ function replaceWithFunction (content, callback) {
   return callback(content)
 }
 
-module.exports = (...keyValueMapOrCallback) => tap(file => replacer(file, keyValueMapOrCallback))
+module.exports = function () { return tap(file => replacer(file, arguments)) }

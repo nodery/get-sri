@@ -10,7 +10,7 @@ function replaceWith (string, object) {
   string = string || ''
   object = object || {}
 
-  return string.replace(/{{\s*?(\w+)\s*?}}/g, (match, key) => {
+  return string.replace(/{{\s*?(\w+)\s*?}}/g, function (match, key) {
     if (key in object) {
       return object[key]
     }
