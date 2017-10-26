@@ -1,7 +1,7 @@
 <a name="module_get-sri"></a>
 
 ## get-sri
-Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.
+Generates the SRI hash of the given string to use with CDN resources without publishing the content to a CDN.
 
 **Version**: 0.0.0  
 **Author**: Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)  

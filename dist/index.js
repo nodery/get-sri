@@ -1,5 +1,5 @@
 /**
- * Generates the SRI of the given string to use with CDN resources, a.k.a. CDN with SRI.
+ * Generates the SRI hash of the given string to use with CDN resources without publishing the content to a CDN.
  *
  * @author Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)
  * @version 0.0.0
