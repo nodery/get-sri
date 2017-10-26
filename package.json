@@ -39,11 +39,14 @@
     "build": "npm run gulp -- build",
     "build:doc": "npm run build && jsdoc2md --no-gfm dist/*.js > doc/API.md",
     "test": "npm run lint && npm run build:doc && tap test/*.js --100",
+    "precommit": "npm run test",
+    "prepush": "npm run test",
     "test:ci": "npm run test"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-tap": "^1.0.1",
+    "husky": "^0.14.3",
     "jsdoc-to-markdown": "^4.0.1",
     "snazzy": "^7.1.1",
     "standard": "^11.0.1",
