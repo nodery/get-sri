@@ -5,9 +5,12 @@
 [![JavaScript Style Guide][jsstd-badge]][jsstd-url]
 [![PRs Welcome][pr-badge]][pr-url]
 
-Generates the [**SRI**][sri-url] of the given string to use as the SRIs of CDN files without publishing 
-the content to CDN *(i.e. when generating the readme file before release)*, 
-a.k.a. using **CDN with SRI** [*(Subresource Integrity)*][sri-url], e.g.:
+Generates the [**SRI**][sri-url] [*(Subresource Integrity)*][sri-url] of the given string 
+to use as the **SRIs of CDN files** without publishing the content to CDN 
+*(e.g. when generating the readme file before release and publish)*.
+
+With `get-sri`, you can just simply generate the `sha256-j7UhB[...]5ni2s=` part of the `integrity` attribute
+for `<link>` and `<script>` elements, e.g.: 
 
 ```html
 <script src="https://cdn.mycustom.com/javascript-file-from-cdn.min.js" 
@@ -44,6 +47,7 @@ getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIuk
 **Any contribution is appreciated**. To get going, check out the 
 [**contribution guidelines**](CONTRIBUTING.md), then the 
 [**development guide**](DEVELOPMENT.md). 
+
 ***Thank you, have fun!***
 
 ## License
