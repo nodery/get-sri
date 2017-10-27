@@ -45,7 +45,7 @@ getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIuk
 ## Contribution
 
 **Any contribution is appreciated**. To get going, check out the 
-[**contribution guidelines**](CONTRIBUTING.md), then the 
+[**contribution guidelines**](CONTRIBUTING.md) and the 
 [**development guide**](DEVELOPMENT.md). 
 
 ***Thank you, have fun!***
