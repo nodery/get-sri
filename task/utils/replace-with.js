@@ -1,3 +1,5 @@
+'use strict'
+
 /**
  * Replace the given string containing placeholder with the key-value pairs of the object.
  *

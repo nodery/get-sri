@@ -1,3 +1,5 @@
+'use strict'
+
 const tap = require('gulp-tap')
 const replaceWith = require('./replace-with')
 
