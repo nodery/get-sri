@@ -6,6 +6,7 @@ const through = require('through2')
 const PluginError = require('plugin-error')
 const isBinary = require('file-is-binary')
 const semver = require('semver')
+const log = require('fancy-log')
 
 function gulpBumper (bumpType) {
   return through.obj(function (file, enc, cb) {
@@ -74,13 +75,18 @@ function gulpBumper (bumpType) {
     const hasFinalNewline = finalNewlinePattern.test(originalContent)
 
     try {
-      pkg.version = semver.inc(pkg.version, bumpType)
+      const oldVer = pkg.version
+      const newVer = semver.inc(oldVer, bumpType)
+
+      pkg.version = newVer
 
       var content = JSON.stringify(pkg, null, numSpaces)
 
       if (hasFinalNewline) {
         content += '\n'
       }
+
+      log('Increased version to ' + newVer + ' (' + bumpType + ') from ' + oldVer)
 
       file.contents = Buffer.from(content)
       this.push(file)
