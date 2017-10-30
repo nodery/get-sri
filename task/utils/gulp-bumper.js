@@ -8,6 +8,8 @@ const isBinary = require('file-is-binary')
 const semver = require('semver')
 const log = require('fancy-log')
 
+const PLUGIN_NAME = 'gulp-bumper'
+
 function gulpBumper (bumpType) {
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
@@ -16,14 +18,14 @@ function gulpBumper (bumpType) {
     }
 
     if (file.isStream()) {
-      cb(new PluginError('gulp-bumper', 'Streaming not supported'))
+      cb(new PluginError(PLUGIN_NAME, 'Streaming not supported'))
       return
     }
 
     if (isBinary(file)) {
       const fileName = path.basename(file.path)
 
-      cb(new PluginError('gulp-bumper', 'File "' + fileName + '" on "' + file.path + '" must be a text file'))
+      cb(new PluginError(PLUGIN_NAME, 'File "' + fileName + '" on "' + file.path + '" must be a text file'))
       return
     }
 
@@ -34,7 +36,7 @@ function gulpBumper (bumpType) {
     try {
       pkg = JSON.parse(originalContent)
     } catch (error) {
-      cb(new PluginError('gulp-bumper', error, {fileName: file.path}))
+      cb(new PluginError(PLUGIN_NAME, error, {fileName: file.path}))
     }
 
     const argv = process.argv[process.argv.length - 1]
@@ -91,7 +93,7 @@ function gulpBumper (bumpType) {
       file.contents = Buffer.from(content)
       this.push(file)
     } catch (error) {
-      this.emit('error', new PluginError('gulp-bumper', error, {fileName: file.path}))
+      this.emit('error', new PluginError(PLUGIN_NAME, error, {fileName: file.path}))
     }
 
     cb()
