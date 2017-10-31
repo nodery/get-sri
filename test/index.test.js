@@ -74,7 +74,7 @@ tap.test(pkg.name, function (t) {
       'sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49'
     ]
 
-    for (let i = 0, len = files.length; i < len; i += 2) {
+    for (var i = 0, len = files.length; i < len; i += 2) {
       const content = fs.readFileSync(path.join(fixtures, files[i])).toString()
       const hash = files[i + 1]
 
