@@ -24,4 +24,4 @@ gulp.task('release', function () {
     .pipe(releaser())
 })
 
-gulp.task('default', ['build'])
+gulp.task('default', gulp.series('build'))

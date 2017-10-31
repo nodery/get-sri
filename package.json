@@ -46,7 +46,7 @@
   "devDependencies": {
     "fancy-log": "^1.3.2",
     "file-is-binary": "^1.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "husky": "^0.14.3",
     "jsdoc-to-markdown": "^4.0.1",
     "plugin-error": "^1.0.1",
