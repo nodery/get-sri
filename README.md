@@ -1,6 +1,7 @@
 # get-sri
 
 [![Travis CI - Build Status][travis-badge]][travis-url]
+[![AppVeyor CI - Build Status][appveyor-badge]][appveyor-url]
 [![Coveralls - Code Coverage Status][cov-badge]][cov-url]
 [![JavaScript Style Guide][jsstd-badge]][jsstd-url]
 [![PRs Welcome][pr-badge]][pr-url]
@@ -55,15 +56,17 @@ getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIuk
 [MIT](LICENSE.md) @ [Richard Szakacs](https://www.github.com/richardszkcs)
 
 
-  [travis-badge]: https://travis-ci.org/jstbx/get-sri.svg?branch=master
-  [travis-url]:   https://travis-ci.org/jstbx/get-sri
+  [travis-badge]:   https://travis-ci.org/ntbx/get-sri.svg?branch=master
+  [travis-url]:     https://travis-ci.org/ntbx/get-sri
+  [appveyor-badge]: https://ci.appveyor.com/api/projects/status/09qmd4yk9arxyeph?svg=true
+  [appveyor-url]:   https://ci.appveyor.com/project/richardszkcs/get-sri
 
-  [cov-badge]:    https://coveralls.io/repos/github/jstbx/get-sri/badge.svg?branch=master
-  [cov-url]:      https://coveralls.io/github/jstbx/get-sri?branch=master
+  [cov-badge]:      https://coveralls.io/repos/github/ntbx/get-sri/badge.svg?branch=master
+  [cov-url]:        https://coveralls.io/github/ntbx/get-sri?branch=master
 
-  [jsstd-badge]:  https://img.shields.io/badge/code_style-standard-brightgreen.svg
-  [jsstd-url]:    https://standardjs.com
+  [jsstd-badge]:    https://img.shields.io/badge/code_style-standard-brightgreen.svg
+  [jsstd-url]:      https://standardjs.com
   
-  [pr-badge]:     https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-  [sri-url]:      https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43
-  [pr-url]:       CONTRIBUTING.md
+  [pr-badge]:       https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+  [sri-url]:        https://hacks.mozilla.org/2015/09/subresource-integrity-in-firefox-43
+  [pr-url]:         CONTRIBUTING.md
