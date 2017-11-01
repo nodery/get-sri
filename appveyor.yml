@@ -25,7 +25,7 @@ cache:
 notifications:
   - provider: Email
     to:
-      - '{{APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL}}'
+      - "%APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL%"
     on_build_success: false
     on_build_failure: false
     on_build_status_changed: false
