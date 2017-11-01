@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "src",
+    "test"
+  ],
+  "verbose": false
+}
