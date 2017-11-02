@@ -43,7 +43,7 @@
     "dev:one": "npm run build && tap",
     "test": "npm run lint && npm run build && npm run doc && tap --100 test/*.test.js",
     "precommit": "npm run precommit:script --silent",
-    "precommit:script": "npm run --silent lint && npm run gulp:silent build && npm run gulp:silent doc && tap --reporter=silent --no-coverage-report --100 test/*.test.js",
+    "precommit:script": "npm run lint --silent && npm run gulp:silent build && npm run gulp:silent doc && tap --reporter=silent --no-coverage-report --100 test/*.test.js",
     "release": "npm run gulp -- release"
   },
   "devDependencies": {
