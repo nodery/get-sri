@@ -11,11 +11,11 @@ gulp.task('build', function () {
 
   return gulp.src('../src/*.js')
     .pipe(replace(pkg))
-    .pipe(gulp.dest('../dist'))
+    .pipe(gulp.dest('../lib'))
 })
 
 gulp.task('doc', function () {
-  return gulp.src('../dist/*.js')
+  return gulp.src('../lib/*.js')
     .pipe(jsdoc())
     .pipe(gulp.dest('../doc'))
 })
