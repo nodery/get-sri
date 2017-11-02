@@ -1,25 +1,20 @@
 'use strict'
 
 const path = require('path')
-
 const through = require('through2')
 const PluginError = require('plugin-error')
 const isBinary = require('file-is-binary')
 const semver = require('semver')
 const log = require('fancy-log')
-const shell = require('shelljs')
 
 const PLUGIN_NAME = 'gulp-bumper'
 
 const DEFAULT_NUM_SPACES = 2
 
-const DEFAULT_REGENERATE_LOCK = true
-
 /**
  * @typedef {Object} gulpBumperOptions
  *
  * @property {number}  [numSpaces=2]
- * @property {boolean} [regenerateLock=true]
  */
 
 /**
@@ -29,6 +24,8 @@ const DEFAULT_REGENERATE_LOCK = true
  * @returns {DestroyableTransform}
  */
 function gulpBumper (bumpType, options) {
+  options = options || {}
+
   return through.obj(function (file, enc, cb) {
     if (file.isNull()) {
       cb(null, file)
@@ -40,10 +37,12 @@ function gulpBumper (bumpType, options) {
       return
     }
 
-    if (isBinary(file)) {
-      const fileName = path.basename(file.path)
+    const filePath = file.path
 
-      cb(new PluginError(PLUGIN_NAME, 'File "' + fileName + '" on "' + file.path + '" must be a text file'))
+    if (isBinary(file)) {
+      const fileName = path.basename(filePath)
+
+      cb(new PluginError(PLUGIN_NAME, 'File "' + fileName + '" on "' + filePath + '" must be a text file'))
       return
     }
 
@@ -54,7 +53,7 @@ function gulpBumper (bumpType, options) {
     try {
       pkg = JSON.parse(originalContent)
     } catch (error) {
-      cb(new PluginError(PLUGIN_NAME, error, { fileName: file.path }))
+      cb(new PluginError(PLUGIN_NAME, error, { fileName: filePath }))
     }
 
     const argv = process.argv[process.argv.length - 1]
@@ -82,8 +81,6 @@ function gulpBumper (bumpType, options) {
         bumpType = 'patch'
         break
     }
-
-    options = options || {}
 
     const spacesPattern = /^{\s*[\r\n]+(\s+)/
     const matches = originalContent.match(spacesPattern) || []
@@ -115,21 +112,10 @@ function gulpBumper (bumpType, options) {
       file.contents = Buffer.from(content)
       this.push(file)
     } catch (error) {
-      this.emit('error', new PluginError(PLUGIN_NAME, error, { fileName: file.path }))
+      this.emit('error', new PluginError(PLUGIN_NAME, error, { fileName: filePath }))
     }
 
-    const regenerateLock = typeof options.regenerateLock === 'boolean'
-      ? options.regenerateLock
-      : DEFAULT_REGENERATE_LOCK
-
-    if (regenerateLock) {
-      log('Regenerate package-lock.json')
-
-      shell.cd(path.dirname(file.path))
-      shell.exec('npm install', { silent: true }, function () { cb() })
-    } else {
-      cb()
-    }
+    cb()
   })
 }
 
