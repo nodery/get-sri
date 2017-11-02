@@ -2,8 +2,8 @@
   "name": "get-sri",
   "version": "0.0.1",
   "description": "Generates the SRI hash of the given string to use with CDN resources without publishing the content to a CDN.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "homepage": "https://github.com/jstbx/get-sri#readme",
   "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
   "directories": {
