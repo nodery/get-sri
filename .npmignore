@@ -82,6 +82,12 @@ src
 # Gulp task directories
 task
 
+# Development-related files
+nodemon.json
+CONTRIBUTING.md
+DEVELOPMENT.md
+
 # Test-related files & directories
 test
 .travis.yml
+appveyor.yml
