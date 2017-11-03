@@ -34,6 +34,8 @@ yarn add get-sri --dev
 
 ## Usage
 
+The **API documentation** can be found [**here**](doc/API.md).
+
 ```javascript
 const getSRI = require('get-sri')
 
