@@ -5,7 +5,7 @@
 [![AppVeyor CI - Build Status][appveyor-badge]][appveyor-url]
 [![Coveralls - Code Coverage Status][cov-badge]][cov-url]
 [![JavaScript Style Guide][jsstd-badge]][jsstd-url]
-[![PRs Welcome][pr-badge]][pr-url]
+[![PRs Welcome][pr-badge]][contrib-url]
 
 Generates the [**SRI**][sri-url] [*(Subresource Integrity)*][sri-url] hash of the given string 
 to use as the **SRIs of CDN files** without publishing the content to CDN 
@@ -34,7 +34,7 @@ yarn add get-sri --dev
 
 ## Usage
 
-The **API documentation** can be found [**here**](doc/API.md).
+The **API documentation** can be found [**here**][doc-url].
 
 ```javascript
 const getSRI = require('get-sri')
@@ -49,11 +49,11 @@ getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIuk
 ## Contribution
 
 **Any contribution is appreciated**. To get going, check out the 
-[**contribution guidelines**](CONTRIBUTING.md). ***Thank you, have fun!***
+[**contribution guidelines**][contrib-url]. ***Thank you and have fun!***
 
 ## License
 
-[MIT](LICENSE.md) @ [Richard Szakacs](https://www.github.com/richardszkcs)
+[MIT][license-url] @ [Richard Szakacs](https://www.github.com/richardszkcs)
 
 
   [node-badge]:     https://img.shields.io/badge/Node-4+-brightgreen.svg?longCache=true&style=flat
@@ -71,4 +71,7 @@ getSRI('... file content as string ...', getSRI.SHA256, true) // 'sha256-OXPgIuk
   
   [pr-badge]:       https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
   [sri-url]:        https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
-  [pr-url]:         CONTRIBUTING.md
+  
+  [contrib-url]:    https://github.com/ntbx/get-sri/blob/master/CONTRIBUTING.md
+  [doc-url]:        https://github.com/ntbx/get-sri/blob/master/doc/API.md
+  [license-url]:    https://github.com/ntbx/get-sri/blob/master/LICENSE.md
