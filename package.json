@@ -4,7 +4,7 @@
   "description": "Generates the SRI hash of the given string to use with CDN resources without publishing the content to a CDN.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "homepage": "https://github.com/jstbx/get-sri#readme",
+  "homepage": "https://github.com/ntbx/get-sri#readme",
   "author": "Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)",
   "directories": {
     "doc": "doc",
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jstbx/get-sri.git"
+    "url": "git+https://github.com/ntbx/get-sri.git"
   },
   "bugs": {
-    "url": "https://github.com/jstbx/get-sri/issues"
+    "url": "https://github.com/ntbx/get-sri/issues"
   },
   "engines": {
     "node": ">=4"
