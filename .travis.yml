@@ -16,7 +16,7 @@ node_js:
   - "4"
 
 script:
-  - npm run test:ci
+  - npm run test
 
 notifications:
   email: false
