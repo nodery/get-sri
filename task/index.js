@@ -20,15 +20,20 @@ gulp.task('doc', function () {
     .pipe(gulp.dest('../doc'))
 })
 
-gulp.task('bump', function () {
-  return gulp.src('../package.json')
-    .pipe(bumper())
-    .pipe(gulp.dest('../'))
-})
-
-gulp.task('release', function () {
-  return gulp.src('../package.json')
-    .pipe(releaser())
-})
+gulp.task('release',
+  gulp.series(
+    function bump () {
+      return gulp.src('../package.json')
+        .pipe(bumper())
+        .pipe(gulp.dest('../'))
+    },
+    'build',
+    'doc',
+    function release () {
+      return gulp.src('../package.json')
+        .pipe(releaser())
+    }
+  )
+)
 
 gulp.task('default', gulp.series('build'))
