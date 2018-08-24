@@ -85,6 +85,7 @@ function gulpReleaser (options) {
     const pkg = require(file.path)
     const version = pkg.version
 
+    shell.exec('git add .')
     shell.exec('git commit -m \'' + replaceWith(commitMessageTemplate, { version: version }) + '\'')
     shell.exec('git tag ' + replaceWith(tagMessageTemplate, { version: version }))
     shell.exec('git push -u origin master')

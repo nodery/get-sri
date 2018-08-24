@@ -3,7 +3,7 @@
 ## get-sri
 Generates the SRI hash of the given string to use with CDN resources without publishing the content to a CDN.
 
-**Version**: 0.0.0  
+**Version**: 1.0.1  
 **Author**: Richard Szakacs <richardszkcs@gmail.com> (www.richardszkcs.com)  
 **License**: MIT  
 
