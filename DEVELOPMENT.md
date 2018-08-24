@@ -13,8 +13,8 @@
 
 ## Structure
 
- - **lib**: code to `require` and use **(generated)**
- - **doc**: API documentation based on the JSDoc in the `src` **(generated)** 
+ - **doc**: API documentation based on the JSDoc in the `src` **(generated)**
+ - **lib**: code to `require` and use **(generated)** 
  - **src**: project source
  - **task**: organized Gulp tasks
  - **test**: organized unit tests
