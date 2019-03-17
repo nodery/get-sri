@@ -1,5 +1,7 @@
 # get-sri
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ntbx/get-sri.svg)](https://greenkeeper.io/)
+
 [![Node.js Version][node-badge]][node-url]
 [![Travis CI - Build Status][travis-badge]][travis-url]
 [![AppVeyor CI - Build Status][appveyor-badge]][appveyor-url]
